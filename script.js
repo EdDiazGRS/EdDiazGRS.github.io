@@ -1,12 +1,12 @@
 const poses = [
-    { name: 'Mountain Pose', difficulty: 'beginner', sanskritName: 'Tadasana' },
-    { name: 'Downward Dog', difficulty: 'beginner', sanskritName: 'Adho Mukha Svanasana' },
-    { name: "Child's Pose", difficulty: 'beginner', sanskritName: 'Balasana' },
-    { name: 'Warrior I', difficulty: 'intermediate', sanskritName: 'Virabhadrasana I' },
-    { name: 'Warrior II', difficulty: 'intermediate', sanskritName: 'Virabhadrasana II' },
-    { name: 'Tree Pose', difficulty: 'intermediate', sanskritName: 'Vrksasana' },
-    { name: 'Crow Pose', difficulty: 'advanced', sanskritName: 'Bakasana' },
-    { name: 'Headstand', difficulty: 'advanced', sanskritName: 'Sirsasana' }
+    { name: 'Mountain Pose', url: 'mountain-pose', difficulty: 'beginner', sanskritName: 'Tadasana' },
+    { name: 'Downward Dog', url: 'downward-dog', difficulty: 'beginner', sanskritName: 'Adho Mukha Svanasana' },
+    { name: "Childs Pose", url: 'childs-pose', difficulty: 'beginner', sanskritName: 'Balasana' },
+    { name: 'Warrior 1', url: 'warrior-1', difficulty: 'intermediate', sanskritName: 'Virabhadrasana I' },
+    { name: 'Warrior 2', url: 'warrior-2', difficulty: 'intermediate', sanskritName: 'Virabhadrasana II' },
+    { name: 'Tree Pose', url: 'tree-pose', difficulty: 'intermediate', sanskritName: 'Vrksasana' },
+    { name: 'Crow Pose', url: 'crow-pose', difficulty: 'advanced', sanskritName: 'Bakasana' },
+    { name: 'Headstand', url: 'headstand', difficulty: 'advanced', sanskritName: 'Sirsasana' }
 ];
 
 function populatePoses() {
@@ -14,12 +14,8 @@ function populatePoses() {
     poses.forEach(pose => {
         const div = document.createElement('div');
         div.className = 'pose-item';
-
-         // Convert pose name to URL-friendly format
-        const poseUrl = pose.name.toLowerCase().replace(/\s+/g, '-');
-
         div.innerHTML = `
-            <h3><a href="poses/${poseUrl}.html">${pose.name}</a></h3>
+            <h3><a href="poses/${pose.url}.html">${pose.name}</a></h3>
             <p><em>${pose.sanskritName}</em></p>
             <p>Difficulty: ${pose.difficulty}</p>
         `;
