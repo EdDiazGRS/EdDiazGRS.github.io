@@ -14,8 +14,12 @@ function populatePoses() {
     poses.forEach(pose => {
         const div = document.createElement('div');
         div.className = 'pose-item';
+
+         // Convert pose name to URL-friendly format
+        const poseUrl = pose.name.toLowerCase().replace(/\s+/g, '-');
+
         div.innerHTML = `
-            <h3>${pose.name}</h3>
+            <h3><a href="poses/${poseUrl}.html">${pose.name}</a></h3>
             <p><em>${pose.sanskritName}</em></p>
             <p>Difficulty: ${pose.difficulty}</p>
         `;
@@ -39,6 +43,50 @@ function handleDifficultyFilter() {
     });
 }
 
+let timerInterval;
+
+function startTimer() {
+    // Clear any existing timer
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
+
+    // Get minutes from input
+    const minutes = document.getElementById('minutes-input').value;
+    
+    // Validate input
+    if (minutes <= 0 || minutes > 60) {
+        alert('Please enter a time between 1 and 60 minutes');
+        return;
+    }
+
+    // Convert minutes to seconds
+    let timeLeft = minutes * 60;
+    
+    // Update timer immediately and then every second
+    updateTimerDisplay(timeLeft);
+    
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert('Timer completed!');
+            document.getElementById('timer-display').textContent = '00:00';
+        } else {
+            updateTimerDisplay(timeLeft);
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    
+    // Add leading zeros if needed
+    const display = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+    document.getElementById('timer-display').textContent = display;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     populatePoses();
