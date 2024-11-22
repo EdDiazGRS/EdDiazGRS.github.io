@@ -1,1 +1,83 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Yoga Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#routines">Routines</a></li>
+                <li><a href="#poses">Poses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Daily Yoga Practice</h1>
+            <p>Find your balance, one pose at a time</p>
+        </section>
+
+        <section id="routines">
+            <h2>Featured Routines</h2>
+            <div class="difficulty-filter">
+                <label>Filter by difficulty:</label>
+                <select id="difficulty-select">
+                    <option value="all">All Levels</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+            <div class="routine-grid">
+                <div class="routine-card" data-difficulty="beginner">
+                    <h3>Morning Flow</h3>
+                    <p>10 minutes • Beginner</p>
+                    <ul>
+                        <li>Mountain Pose</li>
+                        <li>Cat-Cow Stretch</li>
+                        <li>Downward Dog</li>
+                        <li>Child's Pose</li>
+                    </ul>
+                </div>
+                <div class="routine-card" data-difficulty="intermediate">
+                    <h3>Power Yoga</h3>
+                    <p>20 minutes • Intermediate</p>
+                    <ul>
+                        <li>Sun Salutations</li>
+                        <li>Warrior Sequence</li>
+                        <li>Balance Poses</li>
+                        <li>Core Work</li>
+                    </ul>
+                </div>
+                <div class="routine-card" data-difficulty="advanced">
+                    <h3>Advanced Flow</h3>
+                    <p>30 minutes • Advanced</p>
+                    <ul>
+                        <li>Inversions</li>
+                        <li>Arm Balances</li>
+                        <li>Deep Stretches</li>
+                        <li>Meditation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="poses">
+            <h2>Common Poses</h2>
+            <div id="poses-list">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created for Daily Yoga Practice • Remember to listen to your body</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
